@@ -1,0 +1,74 @@
+version: 2
+
+models:
+   - name: stg_venue
+     columns: 
+      - name: venueid
+        tests:
+          - unique
+          - not_null
+
+
+   - name: stg_allevents
+     columns:
+      - name: eventid
+        tests:
+          - unique
+          - not_null
+
+      
+  
+   - name: stg_allusers
+     columns: 
+      - name: userid
+        tests:
+          - unique
+          - not_null
+   
+   - name: stg_category
+     columns: 
+      - name: catid
+        tests:
+          - unique
+          - not_null
+
+   - name: stg_date
+     columns: 
+      - name: dateid
+        tests:
+          - unique
+          - not_null
+
+   - name: stg_listings
+     columns: 
+      - name: listid
+        tests:
+          - unique
+          - not_null
+
+      
+
+   - name: stg_sales
+     columns: 
+      - name: salesid
+        tests:
+          - unique
+          - not_null
+
+      
+     
+
+
+   
+  
+  
+
+  
+
+        
+    
+       
+
+
+
+ 
