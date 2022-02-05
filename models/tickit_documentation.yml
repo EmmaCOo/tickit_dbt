@@ -1,0 +1,84 @@
+version: 2
+
+sources:
+  - name: tickit
+    description: A clone of a tickit database.
+    database: sigma-seer-340105
+    schema: dbt_emmacoo
+    tables:
+      - name: venue
+        description: Raw data for Venue information such as venue_name, venue_city, venue_state, and venue_seats.
+        columns:
+          - name: venueid
+            description: Primary key for venue.
+            tests:
+              - unique
+              - not_null
+
+      - name: allevents
+        description: Raw data for Events such as event_name and date. 
+        columns:
+          - name: eventid
+            description: Primary key for orders.
+            tests:
+              - unique
+              - not_null
+
+      - name: allusers
+        description: Raw data for user's information in details with their likes in different types of music.  
+        columns:
+          - name: userid
+            description: Primary key for orders.
+            tests:
+              - unique
+              - not_null
+
+      - name: category
+        description: Raw data for category of tickets.
+        columns:
+          - name: catid
+            description: Primary key for orders.
+            tests:
+              - unique
+              - not_null
+
+      - name: source.tickit.tickit.date 
+        description: Raw data for day, month, year, and holiday of the tickets sold.
+        columns:
+          - name: dateid
+            description: Primary key for orders.
+            tests:
+              - unique
+              - not_null
+
+      - name: date
+        description: Raw data for day, month, year, and holiday of the tickets sold.
+        columns:
+          - name: dateid
+            description: Primary key for orders.
+            tests:
+              - unique
+              - not_null
+        
+      - name: listings
+        description: Raw data for listtings of the tickets.
+        columns:
+          - name: listid
+            description: Primary key for orders.
+            tests:
+              - unique
+              - not_null
+
+      - name: sales
+        description: Raw data for sales of the tickets.
+        columns:
+          - name: salesid
+            description: Primary key for orders.
+            tests:
+              - unique
+              - not_null
+        
+        loaded_at_field: _etl_loaded_at
+        freshness:
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 24, period: hour}
